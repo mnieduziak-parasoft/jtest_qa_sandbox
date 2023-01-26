@@ -1,0 +1,1 @@
+Do celów instalacji Gradle, nie ma znaczenia typ systemu operacyjnego.
