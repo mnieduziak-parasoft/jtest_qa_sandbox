@@ -36,6 +36,8 @@ jobs:
       id: jtest
       uses: parasoft/run-jtest-action@1.0.0
       with:
+        #If jtestcli executable is not on PATH, you can configure the path to the installation directory of Parasoft Jtest, by configuring the installDir parameter:
+        installDir: 'C:/work/gitHub/parasoft_jtest_2022.2.1_win32_x86_64_release'
         #Uses the jtest.data.json generated with the Gradle command in the previous step
         input: build/jtest/jtest.data.json
 
