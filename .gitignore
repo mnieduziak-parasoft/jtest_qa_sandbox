@@ -25,4 +25,4 @@ sanity-check/projects/file-suppressions/report
 sanity-check/projects/file-suppressions/.jtest
 sanity-check/config/env
 docker
-report/
+*.7z
