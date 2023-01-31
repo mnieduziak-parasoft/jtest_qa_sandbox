@@ -37,7 +37,7 @@ jobs:
       
     # Generates the jtest.data.json input file.
     - name: Create input for Jtest
-      run: ./gradlew clean build jtest -I C:/work/gitHub/parasoft_jtest_2022.2.1_win32_x86_64_release/integration/gradle/init.gradle "-Djtest.skip=true"
+      run: ./gradlew clean build jtest -I /home/milosz/Apps/jtestcli/parasoft_jtest_2022.2.1_linux_x86_64/integration/gradle/init.gradle "-Djtest.skip=true"
 
     # Runs code analysis with Jtest.
     - name: Run Jtest
@@ -45,7 +45,7 @@ jobs:
       uses: parasoft/run-jtest-action@1.0.0
       with:
         #If jtestcli executable is not on PATH, you can configure the path to the installation directory of Parasoft Jtest, by configuring the installDir parameter:
-        installDir: 'C:/work/gitHub/parasoft_jtest_2022.2.1_win32_x86_64_release'
+        installDir: '/home/milosz/Apps/jtestcli/parasoft_jtest_2022.2.1_linux_x86_64'
         #Uses the jtest.data.json generated with the Gradle command in the previous step
         input: build/jtest/jtest.data.json
 
