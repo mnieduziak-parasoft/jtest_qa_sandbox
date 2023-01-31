@@ -18,7 +18,7 @@ jobs:
     name: Analyze project with Jtest
     
     # Specifies the type of runner that the job will run on.
-    runs-on: self-hosted
+    runs-on: [self-hosted, Windows]
 
     permissions:
       # required for all workflows
