@@ -47,7 +47,7 @@ jobs:
         #If jtestcli executable is not on PATH, you can configure the path to the installation directory of Parasoft Jtest, by configuring the installDir parameter:
         installDir: '/home/milosz/Apps/jtestcli/parasoft_jtest_2022.2.1_linux_x86_64'
         #Uses the jtest.data.json generated with the Maven command in the previous step
-        input: /build/jtest/jtest.data.json
+        input: /target/jtest/jtest.data.json
 
     # Uploads analysis results in the SARIF format, so that they are displayed as GitHub code scanning alerts.
     - name: Upload results (SARIF)
