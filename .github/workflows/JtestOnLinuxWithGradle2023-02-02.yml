@@ -22,7 +22,7 @@ jobs:
       security-events: write
       
     # Specifies the type of runner that the job will run on.
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux]
 
     # Steps represent a sequence of tasks that will be executed as part of the job.
     steps:
@@ -33,7 +33,7 @@ jobs:
       
     # Generates the jtest.data.json input file.
     - name: Create input for Jtest
-      run: ./gradlew clean build jtest -I /path/to/jtest/integration/gradle/init.gradle "-Djtest.skip=true"
+      run: ./gradlew clean build jtest -I /home/milosz/Apps/jtestcli/parasoft_jtest_2022.2.1_linux_x86_64/integration/gradle/init.gradle "-Djtest.skip=true"
 
     # Runs code analysis with Jtest.
     - name: Run Jtest
