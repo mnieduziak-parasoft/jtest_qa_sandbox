@@ -22,7 +22,7 @@
             <plugin>
                 <groupId>com.parasoft.jtest</groupId>
                 <artifactId>jtest-maven-plugin</artifactId>
-                <version>2022.2.1</version>
+                <version>2023.1.0</version>
                 <configuration>
                     <!-- enforcing chosen configuration   
                     <config>builtin://Demo Configuration</config>
@@ -32,7 +32,7 @@
             <plugin>
                 <groupId>com.parasoft.jtest.tia</groupId>
                 <artifactId>tia-maven-plugin</artifactId>
-                <version>2022.2.1</version>
+                <version>2023.1.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -78,7 +78,7 @@
             <plugin>
                 <groupId>com.parasoft.jtest</groupId>
                 <artifactId>jtest-maven-plugin</artifactId>
-                <version>2022.2.1</version>
+                <version>2023.1.0</version>
                 <configuration>
                     <!-- enforcing chosen configuration   
                     <config>builtin://Demo Configuration</config>
@@ -108,28 +108,28 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-migrationsupport</artifactId>
-            <version>5.8.2</version>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-runner</artifactId>
-            <version>1.8.2</version>
+            <version>1.9.2</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
-            <version>5.8.2</version>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -143,14 +143,14 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>4.4.0</version>
+            <version>4.11.0</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
           <groupId>org.mockito</groupId>
           <artifactId>mockito-inline</artifactId>
-          <version>4.4.0</version>
+          <version>4.11.0</version>
           <scope>test</scope>
         </dependency>
 
