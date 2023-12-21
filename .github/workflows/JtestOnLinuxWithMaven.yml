@@ -40,8 +40,10 @@ jobs:
       id: jtest
       uses: parasoft/run-jtest-action@2.0.0
       with:
+        installDir: '/home/milosz/work/JT-76038_vscode'
         #Uses the jtest.data.json generated with the Maven command in the previous step
         input: target/jtest/jtest.data.json
+        
 
     # Uploads analysis results in the SARIF format, so that they are displayed as GitHub code scanning alerts.
     - name: Upload results (SARIF)
