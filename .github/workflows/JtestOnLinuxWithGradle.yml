@@ -40,6 +40,7 @@ jobs:
       id: jtest
       uses: parasoft/run-jtest-action@2.0.0
       with:
+        installDir: '/home/milosz/work/jtest_under_test/jtest'
         #Uses the jtest.data.json generated with the Gradle command in the previous step
         input: build/jtest/jtest.data.json
 
