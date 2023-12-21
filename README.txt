@@ -1,4 +1,4 @@
-The description of Ant, Maven, and Gradle integration is available at https://docs.parasoft.com/display/JTEST20231/Integrating+with+Build+Systems
+The description of Ant, Maven, and Gradle integration is available at https://docs.parasoft.com/display/JTEST20241/Integrating+with+Build+Systems
 
 This document describes how to perform static analysis, run tests, and collect coverage information with Jtest - using the "demo" project shipped with the product.
 
@@ -47,7 +47,7 @@ Ant
 Maven
 -------------------------------------------------
 1. Configure your Maven setup by following the Jtest User Guide:
-   https://docs.parasoft.com/display/JTEST20231/Configuring+the+Jtest+Plugin+for+Maven
+   https://docs.parasoft.com/display/JTEST20241/Configuring+the+Jtest+Plugin+for+Maven
 
 2. Run "Demo Configuration" to perform static analysis and collect coverage for unit tests:
 
@@ -141,8 +141,8 @@ UNIX:
 
 
 For more information see:
-   https://docs.parasoft.com/display/JTEST20231/Testing+and+Analysis+with+Maven
-   https://docs.parasoft.com/display/JTEST20231/Testing+and+Analysis+with+Gradle
+   https://docs.parasoft.com/display/JTEST20241/Testing+and+Analysis+with+Maven
+   https://docs.parasoft.com/display/JTEST20241/Testing+and+Analysis+with+Gradle
 
 =================================================
 
@@ -239,4 +239,4 @@ UNIX:
      Coverage details are available in report.html
 
 
-For more information see https://docs.parasoft.com/display/JTEST20231/Application+Coverage
+For more information see https://docs.parasoft.com/display/JTEST20241/Application+Coverage
