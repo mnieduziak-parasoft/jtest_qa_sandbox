@@ -33,14 +33,16 @@ jobs:
       
     # Generates the jtest.data.json input file.
     - name: Create input for Jtest
-      run: ./gradlew clean build jtest -I /home/milosz/work/jtest_under_test/jtest/integration/gradle/init.gradle "-Djtest.skip=true"
+      # run: ./gradlew clean build jtest -I /home/milosz/work/jtest_under_test/jtest/integration/gradle/init.gradle "-Djtest.skip=true"
+      run: ./gradlew clean build jtest -I /home/vagrant/dev/jtest_under_test/jtest/integration/gradle/init.gradle "-Djtest.skip=true"
 
     # Runs code analysis with Jtest.
     - name: Run Jtest
       id: jtest
       uses: parasoft/run-jtest-action@2.0.0
       with:
-        installDir: '/home/milosz/work/jtest_under_test/jtest'
+        # installDir: '/home/milosz/work/jtest_under_test/jtest'
+        installDir: '/home/vagrant/dev/jtest_under_test/jtest'
         #Uses the jtest.data.json generated with the Gradle command in the previous step
         input: build/jtest/jtest.data.json
 
