@@ -7,8 +7,9 @@ trigger:
 
 # Specifies the type of runner that the pipeline will run on.
 pool:
-  name: self-hosted-jtest
+  name: jtest-agent-pool
 
+steps:
 
 # Configures your Gradle project.  
 - task: Gradle@2
@@ -20,13 +21,13 @@ pool:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     tasks: 'build jtest'
-    options: '-Djtest.skip=true -I path\to\jtest\integration\gradle\init.gradle'
+    options: '-Djtest.skip=true -I \home\vagrant\dev\jtest_under_test\jtest\integration\gradle\init.gradle'
 
 # Runs code analysis with Jtest.   
-  - task: RunJtest@1
-    inputs:
-      workingDir: '$(Build.Repository.LocalPath)'
-      dataJson: 'build/jtest/jtest.data.json'
+- task: RunJtest@1
+  inputs:
+    workingDir: '$(Build.Repository.LocalPath)'
+    dataJson: 'build/jtest/jtest.data.json'
 
 # Uploads analysis results in the SARIF format, so that they can be accessed in the 'Scans' tab.
 - task: PublishBuildArtifacts@1
