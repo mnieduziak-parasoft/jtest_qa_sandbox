@@ -1,0 +1,44 @@
+# This is an example pipeline to help you get started with the Run Jtest task for a Maven project.
+
+# Triggers the pipeline on push or pull request events but only for the master (main) branch.
+trigger:
+  - master
+  - main
+
+# Specifies the type of runner that the pipeline will run on.
+pool:
+  name: self-hosted-jtest
+
+steps:
+
+# Configures your Maven project.  
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    goals: 'install jtest:jtest'
+    options: '-Djtest.skip=true'
+
+# Runs code analysis with Jtest.   
+- task: RunJtest@1
+  inputs:
+    workingDir: '$(Build.Repository.LocalPath)'
+    dataJson: 'target/jtest/jtest.data.json'
+
+
+# Uploads analysis results in the SARIF format, so that they can be accessed in the 'Scans' tab.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'reports/report.sarif'
+    ArtifactName: 'CodeAnalysisLogs'
+    publishLocation: 'Container'
+
+# Uploads all report files (.xml, .html, .sarif) as build artifacts.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'reports'
+    ArtifactName: 'JtestReports'
+    publishLocation: 'Container'
