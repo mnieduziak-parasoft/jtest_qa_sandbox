@@ -26,6 +26,7 @@ steps:
 # Runs code analysis with Jtest.   
 - task: RunJtest@1
   inputs:
+    installDir: '/home/vagrant/dev/jtest_under_test/jtest'
     workingDir: '$(Build.Repository.LocalPath)'
     dataJson: 'build/jtest/jtest.data.json'
 
