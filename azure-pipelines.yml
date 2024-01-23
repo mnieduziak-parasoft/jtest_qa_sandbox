@@ -7,7 +7,7 @@ trigger:
 
 # Specifies the type of runner that the pipeline will run on.
 pool:
-  name: test-agent-pool
+  name: jtest-agent-pool
 
 steps:
 
