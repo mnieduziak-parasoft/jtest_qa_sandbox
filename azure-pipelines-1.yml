@@ -21,7 +21,7 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     tasks: 'build jtest'
-    options: '-Djtest.skip=true -I \home\vagrant\dev\jtest_under_test\jtest\integration\gradle\init.gradle'
+    options: '-Djtest.skip=true -I /home/vagrant/dev/jtest_under_test/jtest/integration/gradle/init.gradle'
 
 # Runs code analysis with Jtest.   
 - task: RunJtest@1
