@@ -7,7 +7,7 @@ trigger:
 
 # Specifies the type of runner that the pipeline will run on.
 pool:
-  name: jtest-agent-pool
+  name: jtest-agent-pool-on-windows
 
 steps:
 
@@ -25,7 +25,7 @@ steps:
 # Runs code analysis with Jtest.   
 - task: RunJtest@1
   inputs:
-    installDir: '/home/vagrant/dev/jtest_under_test/jtest'
+    installDir: 'C:/work/jtest_under_test/jtest'
     workingDir: '$(Build.Repository.LocalPath)'
     dataJson: 'target/jtest/jtest.data.json'
 
