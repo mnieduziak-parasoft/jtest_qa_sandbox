@@ -1,15 +1,17 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+# This is an example pipeline to help you get started with the Run Jtest task for a Maven project.
 
+# Triggers the pipeline on push or pull request events but only for the master (main) branch.
 trigger:
-- main
+  - master
+  - main
 
+# Specifies the type of runner that the pipeline will run on.
 pool:
-  vmImage: ubuntu-latest
+  name: jtest-agent-pool
 
 steps:
+
+# Configures your Maven project.  
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -17,6 +19,27 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    goals: 'install jtest:jtest'
+    options: '-Djtest.skip=true'
+
+# Runs code analysis with Jtest.   
+- task: RunJtest@1
+  inputs:
+    installDir: '/home/vagrant/dev/jtest_under_test/jtest'
+    workingDir: '$(Build.Repository.LocalPath)'
+    dataJson: 'target/jtest/jtest.data.json'
+
+
+# Uploads analysis results in the SARIF format, so that they can be accessed in the 'Scans' tab.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'reports/report.sarif'
+    ArtifactName: 'CodeAnalysisLogs'
+    publishLocation: 'Container'
+
+# Uploads all report files (.xml, .html, .sarif) as build artifacts.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'reports'
+    ArtifactName: 'JtestReports'
+    publishLocation: 'Container'
