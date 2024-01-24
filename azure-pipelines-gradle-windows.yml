@@ -1,0 +1,45 @@
+# This is an example pipeline to help you get started with the Run Jtest task for a Gradle project.
+
+# Triggers the pipeline on push or pull request events but only for the master (main) branch.
+trigger:
+  - master
+  - main
+
+# Specifies the type of runner that the pipeline will run on.
+pool:
+  name: jtest-agent-pool
+
+steps:
+
+# Configures your Gradle project.  
+- task: Gradle@2
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    tasks: 'build jtest'
+    options: '-Djtest.skip=true -I /home/vagrant/dev/jtest_under_test/jtest/integration/gradle/init.gradle'
+
+# Runs code analysis with Jtest.   
+- task: RunJtest@1
+  inputs:
+    installDir: '/home/vagrant/dev/jtest_under_test/jtest'
+    workingDir: '$(Build.Repository.LocalPath)'
+    dataJson: 'build/jtest/jtest.data.json'
+
+# Uploads analysis results in the SARIF format, so that they can be accessed in the 'Scans' tab.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'reports/report.sarif'
+    ArtifactName: 'CodeAnalysisLogs'
+    publishLocation: 'Container'
+
+# Uploads all report files (.xml, .html, .sarif) as build artifacts.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'reports'
+    ArtifactName: 'JtestReports'
+    publishLocation: 'Container'
