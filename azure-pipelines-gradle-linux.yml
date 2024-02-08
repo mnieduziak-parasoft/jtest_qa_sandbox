@@ -10,11 +10,10 @@ pool:
   name: jtest-agent-pool
 
 steps:
-
 # Configures your Gradle project.  
 - task: Gradle@2
   inputs:
-    workingDirectory: ''
+    workingDirectory: '$(Build.Repository.LocalPath)'
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
@@ -26,7 +25,6 @@ steps:
 # Runs code analysis with Jtest.   
 - task: RunJtest@1
   inputs:
-    installDir: '/home/vagrant/dev/jtest_under_test/jtest'
     workingDir: '$(Build.Repository.LocalPath)'
     dataJson: 'build/jtest/jtest.data.json'
 
