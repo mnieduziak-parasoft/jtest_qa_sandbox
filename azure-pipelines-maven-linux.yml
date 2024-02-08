@@ -10,10 +10,10 @@ pool:
   name: jtest-agent-pool
 
 steps:
-
 # Configures your Maven project.  
 - task: Maven@3
   inputs:
+    workingDirectory: '$(Build.Repository.LocalPath)'
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
@@ -25,7 +25,6 @@ steps:
 # Runs code analysis with Jtest.   
 - task: RunJtest@1
   inputs:
-    installDir: '/home/vagrant/dev/jtest_under_test/jtest'
     workingDir: '$(Build.Repository.LocalPath)'
     dataJson: 'target/jtest/jtest.data.json'
 
