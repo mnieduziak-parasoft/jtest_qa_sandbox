@@ -32,7 +32,7 @@ steps:
 # Uploads analysis results in the SARIF format, so that they can be accessed in the 'Scans' tab.
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'reports/report.sarif'
+    PathtoPublish: 'reports/report_azure.sarif'
     ArtifactName: 'CodeAnalysisLogs'
     publishLocation: 'Container'
 
