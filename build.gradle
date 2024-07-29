@@ -7,9 +7,7 @@ apply plugin: 'maven-publish'
 group = theGroup
 version = theVersion
 
-//def jtestPluginPath = projectDir.absolutePath + '/../../integration/gradle/jtest.gradle'
-def jtestPluginPath = '/home/parasoft/apps/jtest-under-test/integration/gradle/init.gradle'
-
+def jtestPluginPath = projectDir.absolutePath + '/../../integration/gradle/jtest.gradle'
 if(file(jtestPluginPath).exists()) {
     apply from: jtestPluginPath
 } else {
