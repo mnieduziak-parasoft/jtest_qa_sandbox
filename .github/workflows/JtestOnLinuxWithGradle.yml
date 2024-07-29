@@ -45,7 +45,8 @@ jobs:
       uses: parasoft/run-jtest-action@2.0.0
       with:
         # installDir: '/home/milosz/work/jtest_under_test/jtest'
-        installDir: '/home/vagrant/dev/jtest_under_test/jtest'
+        # installDir: '/home/vagrant/dev/jtest_under_test/jtest'
+        installDir: '/home/parasoft/apps/jtest-under-test'
         #Uses the jtest.data.json generated with the Gradle command in the previous step
         input: build/jtest/jtest.data.json
 
