@@ -15,14 +15,14 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
   build:
-    name: Analyze project with Jtest
+    name: Analyze project with Jtest using Maven
     
     permissions:
       # required for all workflows
       security-events: write
     
     # Specifies the type of runner that the job will run on.
-    runs-on: [self-hosted, Linux]
+    runs-on: [self-hosted, Linux, docker, ephemeral]
 
     # Steps represent a sequence of tasks that will be executed as part of the job.
     steps:
