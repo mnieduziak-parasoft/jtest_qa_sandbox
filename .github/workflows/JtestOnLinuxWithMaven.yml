@@ -42,7 +42,7 @@ jobs:
       with:
         # installDir: '/home/milosz/work/jtest_under_test/jtest'
         # installDir: '/home/vagrant/dev/jtest_under_test/jtest'
-        installDir: '/home/parasoft/apps/jtest_under_test'
+        installDir: '/home/parasoft/apps/jtest-under-test'
         #Uses the jtest.data.json generated with the Maven command in the previous step
         input: target/jtest/jtest.data.json
         
